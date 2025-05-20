@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import LoadingSpinner from "./components/LoadingSpinner";
+import { Box } from "@mui/material";
+import GradientBackground from "./components/GradientBackground";
 
 // Client-only wrapper component
 export default function Home() {
@@ -22,5 +24,17 @@ export default function Home() {
     loading: () => <LoadingSpinner />,
   });
 
-  return <ClientHomePage />;
+  return (
+    <Box
+      sx={{
+        position: "relative",
+        minHeight: "100vh",
+        bgcolor: "#05070A",
+        overflow: "hidden",
+      }}
+    >
+      <GradientBackground />
+      <ClientHomePage />
+    </Box>
+  );
 }

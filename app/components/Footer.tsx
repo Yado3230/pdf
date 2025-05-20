@@ -11,10 +11,10 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "#E6F0F9",
+        backgroundColor: "#05070A",
         py: 3,
-        borderTop: "1px solid rgba(0,0,0,0.1)",
-        color: "black",
+        borderTop: "1px solid rgba(255,255,255,0.1)",
+        color: "white",
       }}
     >
       <Container maxWidth="lg">
@@ -42,7 +42,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <Box sx={{ flex: 1, textAlign: "center" }}>
-            <Typography variant="body2" sx={{ color: "rgba(0,0,0,0.8)" }}>
+            <Typography variant="body2" sx={{ color: "rgba(255,255,255,0.7)" }}>
               Copyright © Khiix 2025
             </Typography>
           </Box>
@@ -62,13 +62,13 @@ const Footer = () => {
               href="#"
               target="_blank"
               sx={{
-                color: "#1C7EC6",
+                color: "#1e90ff",
                 borderRadius: "50%",
-                border: "1px solid rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 p: 1,
                 width: 40,
                 height: 40,
-                "&:hover": { backgroundColor: "rgba(0,0,0,0.2)" },
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
               }}
             >
               <TelegramIcon fontSize="small" />
@@ -79,13 +79,13 @@ const Footer = () => {
               href="#"
               target="_blank"
               sx={{
-                color: "#1C7EC6",
+                color: "#1e90ff",
                 borderRadius: "50%",
-                border: "1px solid rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 p: 1,
                 width: 40,
                 height: 40,
-                "&:hover": { backgroundColor: "rgba(0,0,0,0.2)" },
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
               }}
             >
               <LinkedInIcon fontSize="small" />
@@ -96,13 +96,13 @@ const Footer = () => {
               href="#"
               target="_blank"
               sx={{
-                color: "#1C7EC6",
+                color: "#1e90ff",
                 borderRadius: "50%",
-                border: "1px solid rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 p: 1,
                 width: 40,
                 height: 40,
-                "&:hover": { backgroundColor: "rgba(0,0,0,0.2)" },
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
               }}
             >
               <InstagramIcon fontSize="small" />
@@ -113,13 +113,13 @@ const Footer = () => {
               href="#"
               target="_blank"
               sx={{
-                color: "#1C7EC6",
+                color: "#1e90ff",
                 borderRadius: "50%",
-                border: "1px solid rgba(0,0,0,0.2)",
+                border: "1px solid rgba(255,255,255,0.2)",
                 p: 1,
                 width: 40,
                 height: 40,
-                "&:hover": { backgroundColor: "rgba(0,0,0,0.2)" },
+                "&:hover": { backgroundColor: "rgba(255,255,255,0.1)" },
               }}
             >
               <MusicNoteIcon fontSize="small" />

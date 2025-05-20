@@ -7,22 +7,22 @@ const lightTheme: ThemeOptions = {
   palette: {
     mode: "light",
     primary: {
-      main: "#0F0C3D",
-      light: "#2d2a5b",
-      dark: "#070624",
+      main: "#1e90ff",
+      light: "#4ba3ff",
+      dark: "#0066cc",
     },
     secondary: {
-      main: "#F7B844",
-      light: "#f9c66e",
-      dark: "#d99e2c",
+      main: "#d53f8c",
+      light: "#e168a5",
+      dark: "#b52477",
     },
     background: {
-      default: "#ffffff",
-      paper: "#f9f9f9",
+      default: "#000000",
+      paper: "#111111",
     },
     text: {
-      primary: "#333355",
-      secondary: "#555577",
+      primary: "#ffffff",
+      secondary: "#b8b8b8",
     },
     error: {
       main: "#d32f2f",
@@ -78,22 +78,22 @@ const darkTheme: ThemeOptions = {
   palette: {
     mode: "dark",
     primary: {
-      main: "#313082",
-      light: "#4e4da3",
-      dark: "#1f1e55",
+      main: "#1e90ff",
+      light: "#4ba3ff",
+      dark: "#0066cc",
     },
     secondary: {
-      main: "#F7B844",
-      light: "#f9c66e",
-      dark: "#d99e2c",
+      main: "#d53f8c",
+      light: "#e168a5",
+      dark: "#b52477",
     },
     background: {
-      default: "#121212",
-      paper: "#1e1e1e",
+      default: "#000000",
+      paper: "#111111",
     },
     text: {
-      primary: "#e0e0e0",
-      secondary: "#a0a0a0",
+      primary: "#ffffff",
+      secondary: "#b8b8b8",
     },
     error: {
       main: "#f44336",

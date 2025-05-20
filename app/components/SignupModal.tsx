@@ -126,25 +126,25 @@ const SignupModal: React.FC<SignupModalProps> = ({
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: { xs: "95%", sm: "600px" },
+          width: { xs: "90%", sm: "450px" },
           maxHeight: "90vh",
           overflow: "auto",
           bgcolor: colors.bg.card,
-          borderRadius: 3,
+          borderRadius: 2,
           boxShadow: "0 10px 40px rgba(0,0,0,0.2)",
-          p: { xs: 3, sm: 5 },
+          p: { xs: 2.5, sm: 3.5 },
           outline: "none",
           border: `1px solid ${colors.border}`,
         }}
       >
-        <Box sx={{ mb: 4, textAlign: "center" }}>
+        <Box sx={{ mb: 3, textAlign: "center" }}>
           <Typography
             variant="h3"
             sx={{
               fontWeight: 800,
               color: colors.primary,
-              mb: 2,
-              fontSize: { xs: "1.8rem", sm: "2.2rem" },
+              mb: 1.5,
+              fontSize: { xs: "1.5rem", sm: "1.8rem" },
               letterSpacing: "-0.02em",
             }}
             id="signup-modal"
@@ -155,8 +155,8 @@ const SignupModal: React.FC<SignupModalProps> = ({
             variant="body1"
             sx={{
               color: colors.text.light,
-              mb: 2,
-              fontSize: { xs: "1rem", sm: "1.1rem" },
+              mb: 1.5,
+              fontSize: { xs: "0.9rem", sm: "1rem" },
               lineHeight: 1.5,
               maxWidth: "90%",
               mx: "auto",
@@ -168,7 +168,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
         </Box>
 
         <form onSubmit={handleSubmit}>
-          <Stack spacing={3.5} sx={{ mb: 4 }}>
+          <Stack spacing={2.5} sx={{ mb: 3 }}>
             <Box>
               <TextField
                 required
@@ -200,14 +200,15 @@ const SignupModal: React.FC<SignupModalProps> = ({
                     "&:hover fieldset": {
                       borderColor: colors.primary,
                     },
-                    fontSize: "1.1rem",
-                    py: 0.8,
+                    fontSize: "0.95rem",
+                    py: 0.5,
                     borderRadius: 1.5,
-                    backgroundColor: "rgba(248, 250, 252, 0.5)",
+                    backgroundColor: "rgba(20, 20, 30, 0.2)",
                     color: colors.text.dark,
                   },
                   "& .MuiInputLabel-root": {
-                    fontSize: "1rem",
+                    fontSize: "0.9rem",
+                    color: colors.text.medium,
                     "&.Mui-focused": {
                       color: colors.primary,
                       fontWeight: 500,
@@ -221,7 +222,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
                 }}
               />
               {errors.name && (
-                <FormHelperText error sx={{ fontSize: "0.85rem", ml: 1.5 }}>
+                <FormHelperText error sx={{ fontSize: "0.75rem", ml: 1.5 }}>
                   {errors.name}
                 </FormHelperText>
               )}
@@ -259,14 +260,15 @@ const SignupModal: React.FC<SignupModalProps> = ({
                     "&:hover fieldset": {
                       borderColor: colors.primary,
                     },
-                    fontSize: "1.1rem",
-                    py: 0.8,
+                    fontSize: "0.95rem",
+                    py: 0.5,
                     borderRadius: 1.5,
-                    backgroundColor: "rgba(248, 250, 252, 0.5)",
+                    backgroundColor: "rgba(20, 20, 30, 0.2)",
                     color: colors.text.dark,
                   },
                   "& .MuiInputLabel-root": {
-                    fontSize: "1rem",
+                    fontSize: "0.9rem",
+                    color: colors.text.medium,
                     "&.Mui-focused": {
                       color: colors.primary,
                       fontWeight: 500,
@@ -280,7 +282,7 @@ const SignupModal: React.FC<SignupModalProps> = ({
                 }}
               />
               {errors.email && (
-                <FormHelperText error sx={{ fontSize: "0.85rem", ml: 1.5 }}>
+                <FormHelperText error sx={{ fontSize: "0.75rem", ml: 1.5 }}>
                   {errors.email}
                 </FormHelperText>
               )}
@@ -291,18 +293,19 @@ const SignupModal: React.FC<SignupModalProps> = ({
               variant="contained"
               fullWidth
               sx={{
-                bgcolor: colors.secondary,
+                backgroundImage: `linear-gradient(90deg, ${colors.secondary}, ${colors.primary})`,
                 color: "white",
                 fontWeight: 600,
-                py: 2,
-                fontSize: "1.1rem",
+                py: 1.5,
+                fontSize: "0.95rem",
                 textTransform: "none",
                 borderRadius: 2,
                 "&:hover": {
-                  bgcolor: "#d02d53", // Darker shade of secondary
+                  backgroundImage: `linear-gradient(90deg, ${colors.secondary}, ${colors.primary})`,
+                  filter: "brightness(1.1)",
                 },
-                mt: 2,
-                boxShadow: `0 4px 12px rgba(231, 56, 97, 0.3)`,
+                mt: 1,
+                boxShadow: `0 4px 12px rgba(213, 63, 140, 0.3)`,
               }}
             >
               Submit & Get Access
@@ -315,7 +318,8 @@ const SignupModal: React.FC<SignupModalProps> = ({
           sx={{
             display: "block",
             textAlign: "center",
-            mt: 3,
+            mt: 2,
+            fontSize: "0.8rem",
             color: colors.text.light,
           }}
         >

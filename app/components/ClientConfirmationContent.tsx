@@ -15,31 +15,33 @@ import Image from "next/image";
 import StarIcon from "@mui/icons-material/Star";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import Footer from "./Footer";
+import { OfferNavbar } from "./OfferNavbar";
 
 const ClientConfirmationContent = () => {
   // Client-side state
-  const [timeLeft, setTimeLeft] = useState({ minutes: 3, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ minutes: 0, seconds: 5 });
+  const [countdownEnded, setCountdownEnded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // Colors
   const colors = {
-    primary: "#1C7EC6", // Primary blue
-    primaryDark: "#146bab", // Darker shade of primary
-    secondary: "#E73861", // Secondary color (red/pink)
+    primary: "#1e90ff", // Primary blue
+    primaryDark: "#0066cc", // Darker shade of primary
+    secondary: "#d53f8c", // Secondary color (pink)
     secondaryLight: "#fbeaef", // Light version of secondary for backgrounds
-    accent: "#22c55e", // Green for CTA
-    accentDark: "#16a34a",
+    accent: "#3b82f6", // Blue accent
+    accentDark: "#2563eb",
     text: {
-      dark: "#0f172a",
-      medium: "#1e293b",
-      light: "#64748b",
+      dark: "#ffffff",
+      medium: "#e0e0e0",
+      light: "#b8b8b8",
     },
     bg: {
-      main: "#f8fafc",
-      card: "#ffffff",
-      highlight: "#e6f0f9", // Lighter version of primary
+      main: "#05070A",
+      card: "#111111",
+      highlight: "#111827", // Darker highlight for depth
     },
-    border: "#e2e8f0",
+    border: "#333333",
     rating: "#f59e0b", // Gold for stars
   };
 
@@ -96,6 +98,7 @@ const ClientConfirmationContent = () => {
           return { minutes: prevTime.minutes - 1, seconds: 59 };
         } else {
           clearInterval(timer);
+          setCountdownEnded(true);
           return { minutes: 0, seconds: 0 };
         }
       });
@@ -168,19 +171,26 @@ const ClientConfirmationContent = () => {
   return (
     <Box
       sx={{
-        bgcolor: colors.bg.main,
-        backgroundImage: `linear-gradient(to bottom, ${colors.bg.highlight}, ${colors.bg.main} 15%, ${colors.bg.main})`,
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        position: "relative",
+        background: "transparent",
+        zIndex: 1,
       }}
     >
+      {/* Offer Navbar */}
+      <OfferNavbar />
+
       {/* Main Header Section */}
       <Box
         sx={{
-          bgcolor: colors.bg.highlight,
+          background: "transparent",
           py: 6,
           pb: 20,
           zIndex: 1,
           textAlign: "center",
-          borderBottom: `1px solid ${colors.border}`,
+          borderBottom: `1px solid rgba(255, 255, 255, 0.05)`,
           position: "relative",
         }}
       >
@@ -267,7 +277,9 @@ const ClientConfirmationContent = () => {
                     fontSize: "0.9rem",
                   }}
                 >
-                  Download Resources after
+                  {countdownEnded
+                    ? "Resources Ready!"
+                    : "Download Resources after"}
                 </Typography>
               </Box>
 
@@ -279,106 +291,144 @@ const ClientConfirmationContent = () => {
                   py: 1.5,
                 }}
               >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    mr: 1,
-                  }}
-                >
+                {!countdownEnded ? (
+                  <>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        mr: 1,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          bgcolor: colors.bg.main,
+                          borderRadius: "4px",
+                          px: 1.5,
+                          py: 0.5,
+                          minWidth: "36px",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 800,
+                            color: colors.secondary,
+                            lineHeight: 1,
+                            fontSize: "1.5rem",
+                          }}
+                        >
+                          {formatTime(timeLeft.minutes)}
+                        </Typography>
+                      </Box>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: colors.text.light,
+                          mt: 0.5,
+                          fontSize: "0.7rem",
+                          textTransform: "uppercase",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Min
+                      </Typography>
+                    </Box>
+
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: 700,
+                        color: colors.secondary,
+                        mx: 0.5,
+                      }}
+                    >
+                      :
+                    </Typography>
+
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        ml: 1,
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          bgcolor: colors.bg.main,
+                          borderRadius: "4px",
+                          px: 1.5,
+                          py: 0.5,
+                          minWidth: "36px",
+                          textAlign: "center",
+                        }}
+                      >
+                        <Typography
+                          variant="h6"
+                          sx={{
+                            fontWeight: 800,
+                            color: colors.secondary,
+                            lineHeight: 1,
+                            fontSize: "1.5rem",
+                          }}
+                        >
+                          {formatTime(timeLeft.seconds)}
+                        </Typography>
+                      </Box>
+                      <Typography
+                        variant="caption"
+                        sx={{
+                          color: colors.text.light,
+                          mt: 0.5,
+                          fontSize: "0.7rem",
+                          textTransform: "uppercase",
+                          fontWeight: 600,
+                        }}
+                      >
+                        Sec
+                      </Typography>
+                    </Box>
+                  </>
+                ) : (
                   <Box
+                    // onClick={() => window.open("/resources.pdf", "_blank")}
                     sx={{
-                      bgcolor: colors.bg.main,
-                      borderRadius: "4px",
-                      px: 1.5,
-                      py: 0.5,
-                      minWidth: "36px",
-                      textAlign: "center",
+                      backgroundImage:
+                        "linear-gradient(90deg, #d53f8c, #3b82f6)",
+                      color: "white",
+                      fontWeight: 700,
+                      px: 3,
+                      py: 1.5,
+                      borderRadius: "8px",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 4px 12px rgba(213, 63, 140, 0.3)",
+                      "&:hover": {
+                        filter: "brightness(1.1)",
+                        transform: "translateY(-2px)",
+                      },
                     }}
                   >
                     <Typography
-                      variant="h6"
+                      variant="button"
                       sx={{
                         fontWeight: 800,
-                        color: colors.secondary,
-                        lineHeight: 1,
-                        fontSize: "1.5rem",
+                        fontSize: "0.9rem",
+                        letterSpacing: "0.03em",
                       }}
                     >
-                      {formatTime(timeLeft.minutes)}
+                      DOWNLOAD RESOURCES
                     </Typography>
                   </Box>
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      color: colors.text.light,
-                      mt: 0.5,
-                      fontSize: "0.7rem",
-                      textTransform: "uppercase",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Min
-                  </Typography>
-                </Box>
-
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontWeight: 700,
-                    color: colors.secondary,
-                    mx: 0.5,
-                  }}
-                >
-                  :
-                </Typography>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    ml: 1,
-                  }}
-                >
-                  <Box
-                    sx={{
-                      bgcolor: colors.bg.main,
-                      borderRadius: "4px",
-                      px: 1.5,
-                      py: 0.5,
-                      minWidth: "36px",
-                      textAlign: "center",
-                    }}
-                  >
-                    <Typography
-                      variant="h6"
-                      sx={{
-                        fontWeight: 800,
-                        color: colors.secondary,
-                        lineHeight: 1,
-                        fontSize: "1.5rem",
-                      }}
-                    >
-                      {formatTime(timeLeft.seconds)}
-                    </Typography>
-                  </Box>
-                  <Typography
-                    variant="caption"
-                    sx={{
-                      color: colors.text.light,
-                      mt: 0.5,
-                      fontSize: "0.7rem",
-                      textTransform: "uppercase",
-                      fontWeight: 600,
-                    }}
-                  >
-                    Sec
-                  </Typography>
-                </Box>
+                )}
               </Box>
             </Box>
           </Box>
@@ -413,7 +463,7 @@ const ClientConfirmationContent = () => {
                 px: 3,
                 zIndex: 10,
                 textAlign: "center",
-                backgroundImage: `linear-gradient(90deg, ${colors.primaryDark}, ${colors.primary})`,
+                backgroundImage: "linear-gradient(90deg, #d53f8c, #3b82f6)",
               }}
             >
               <Typography
@@ -760,17 +810,18 @@ const ClientConfirmationContent = () => {
               <Box
                 sx={{
                   bgcolor: colors.secondary,
-                  backgroundImage: `linear-gradient(135deg, ${colors.secondary}, #d02d53)`,
+                  backgroundImage: "linear-gradient(90deg, #d53f8c, #3b82f6)",
                   p: 3,
                   borderRadius: 2,
                   textAlign: "center",
                   cursor: "pointer",
                   transition: "all 0.2s ease",
-                  boxShadow: `0 4px 12px rgba(231, 56, 97, 0.3)`,
+                  boxShadow: "0 4px 12px rgba(213, 63, 140, 0.3)",
                   "&:hover": {
-                    bgcolor: "#d02d53",
+                    backgroundImage: "linear-gradient(90deg, #d53f8c, #3b82f6)",
+                    filter: "brightness(1.1)",
                     transform: "translateY(-2px)",
-                    boxShadow: `0 6px 16px rgba(231, 56, 97, 0.4)`,
+                    boxShadow: `0 6px 16px rgba(213, 63, 140, 0.3)`,
                   },
                   mt: 3,
                 }}

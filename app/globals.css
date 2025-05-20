@@ -1,15 +1,17 @@
 @import "tailwindcss/preflight";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #05070a;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --accent: #1e90ff;
+  --button-gradient-from: #d53f8c;
+  --button-gradient-to: #3b82f6;
 }
-
-
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #05070a;
     --foreground: #ededed;
   }
 }
@@ -23,4 +25,20 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+.gradient-button {
+  background: linear-gradient(
+    90deg,
+    var(--button-gradient-from),
+    var(--button-gradient-to)
+  );
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+}
+
+.accent-text {
+  color: var(--accent);
 }

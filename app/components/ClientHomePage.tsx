@@ -30,21 +30,21 @@ const ClientHomePage = () => {
 
   // Colors similar to ConfirmationPage for consistent styling
   const colors = {
-    primary: "#1C7EC6", // Primary blue
-    primaryDark: "#146bab", // Darker shade of primary
-    secondary: "#E73861", // Secondary color (red/pink)
-    accent: "#22c55e", // Green for CTA
+    primary: "#1e90ff", // Primary blue
+    primaryDark: "#0066cc", // Darker shade of primary
+    secondary: "#d53f8c", // Secondary color (pink)
+    accent: "#3b82f6", // Blue accent
     text: {
-      dark: "#0f172a",
-      medium: "#1e293b",
-      light: "#64748b",
+      dark: "#ffffff",
+      medium: "#e0e0e0",
+      light: "#b8b8b8",
     },
     bg: {
-      main: "#f8fafc",
-      card: "#ffffff",
-      highlight: "#e6f0f9", // Lighter version of primary
+      main: "#000000",
+      card: "#111111",
+      highlight: "#111827", // Darker highlight for depth
     },
-    border: "#e2e8f0",
+    border: "#333333",
   };
 
   // FAQ items
@@ -74,22 +74,23 @@ const ClientHomePage = () => {
   return (
     <Box
       sx={{
-        bgcolor: colors.bg.main,
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        backgroundImage: `linear-gradient(to bottom, ${colors.bg.highlight}, ${colors.bg.main} 15%, ${colors.bg.main})`,
+        position: "relative",
+        background: "transparent",
+        zIndex: 1,
       }}
     >
       {/* Main Header Section */}
       <Box
         sx={{
-          bgcolor: colors.bg.highlight,
+          background: "transparent",
           py: 6,
           pb: 20,
           zIndex: 1,
           textAlign: "center",
-          borderBottom: `1px solid ${colors.border}`,
+          borderBottom: `1px solid rgba(255, 255, 255, 0.05)`,
           position: "relative",
         }}
       >
@@ -114,7 +115,7 @@ const ClientHomePage = () => {
             variant="h4"
             sx={{
               fontWeight: 700,
-              color: colors.primary,
+              color: colors.accent,
               fontSize: { xs: "1.2rem", sm: "1.8rem", md: "2rem" },
               maxWidth: "1000px",
               mx: "auto",
@@ -129,6 +130,22 @@ const ClientHomePage = () => {
       </Box>
 
       <Container maxWidth="lg" sx={{ position: "relative" }}>
+        {/* Overlay for depth effect */}
+        <Box
+          sx={{
+            position: "absolute",
+            top: -100,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "100%",
+            height: 500,
+            background:
+              "radial-gradient(circle at center, rgba(20, 30, 60, 0.1) 0%, rgba(0, 0, 0, 0) 70%)",
+            pointerEvents: "none",
+            zIndex: 0,
+          }}
+        />
+
         {/* Image Section */}
         <Box
           sx={{
@@ -143,8 +160,9 @@ const ClientHomePage = () => {
             sx={{
               borderRadius: 3,
               overflow: "hidden",
-              boxShadow: "0 10px 40px rgba(0,0,0,0.12)",
-              border: `1px solid ${colors.border}`,
+              boxShadow: "0 10px 40px rgba(0,0,0,0.3)",
+              border: `1px solid rgba(255,255,255,0.1)`,
+              background: "transparent",
             }}
           >
             {/* Image Header */}
@@ -294,8 +312,7 @@ const ClientHomePage = () => {
         <Box
           onClick={handleOpenModal}
           sx={{
-            bgcolor: colors.secondary,
-            backgroundImage: `linear-gradient(135deg, ${colors.secondary}, #d02d53)`,
+            backgroundImage: `linear-gradient(90deg, ${colors.secondary}, ${colors.primary})`,
             p: 3,
             maxWidth: "900px",
             mx: "auto",
@@ -303,11 +320,10 @@ const ClientHomePage = () => {
             textAlign: "center",
             cursor: "pointer",
             transition: "all 0.2s ease",
-            boxShadow: `0 4px 12px rgba(231, 56, 97, 0.3)`,
+            boxShadow: `0 4px 12px rgba(213, 63, 140, 0.3)`,
             "&:hover": {
-              bgcolor: "#d02d53",
               transform: "translateY(-2px)",
-              boxShadow: `0 6px 16px rgba(231, 56, 97, 0.4)`,
+              boxShadow: `0 6px 16px rgba(213, 63, 140, 0.4)`,
             },
             my: 3,
             mb: 10,
