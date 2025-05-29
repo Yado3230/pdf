@@ -13,7 +13,7 @@ export const GradientBackground = () => {
           width: "50%",
           height: "50%",
           background:
-            "radial-gradient(circle, rgb(71,133,238,0.15) 0%, rgba(0, 0, 0, 0) 70%)",
+            "radial-gradient(circle, rgb(71,133,238,0.18) 0%, rgba(10, 25, 38, 0.1) 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           zIndex: 0,
@@ -31,7 +31,7 @@ export const GradientBackground = () => {
           width: "50%",
           height: "50%",
           background:
-            "radial-gradient(circle, rgba(6, 11, 20, 0.8) 0%, rgba(0, 0, 0, 0) 70%)",
+            "radial-gradient(circle, rgba(10, 25, 38, 0.9) 0%, rgba(10, 25, 38, 0.1) 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           zIndex: 0,
@@ -49,7 +49,7 @@ export const GradientBackground = () => {
           width: "50%",
           height: "50%",
           background:
-            "radial-gradient(circle, rgba(203, 68, 121, 0.15) 0%, rgba(0, 0, 0, 0) 70%)",
+            "radial-gradient(circle, rgba(203, 68, 121, 0.18) 0%, rgba(10, 25, 38, 0.1) 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           zIndex: 0,
@@ -67,7 +67,7 @@ export const GradientBackground = () => {
           width: "50%",
           height: "50%",
           background:
-            "radial-gradient(circle, rgba(203, 68, 121, 0.15) 0%, rgba(0, 0, 0, 0) 70%)",
+            "radial-gradient(circle, rgba(203, 68, 121, 0.18) 0%, rgba(10, 25, 38, 0.1) 70%)",
           borderRadius: "50%",
           filter: "blur(80px)",
           zIndex: 0,
@@ -85,7 +85,7 @@ export const GradientBackground = () => {
           height: { xs: "200px", md: "400px" },
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgb(10,25,38) 0%, rgba(0,0,0,0) 70%)",
+            "radial-gradient(circle, rgb(10,25,38) 0%, rgba(10,25,38,0.2) 70%)",
           filter: "blur(40px)",
           zIndex: 0,
         }}
@@ -94,4 +94,4 @@ export const GradientBackground = () => {
   );
 };
 
-export default GradientBackground; 
+export default GradientBackground;

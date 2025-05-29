@@ -1,18 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Box,
-  Container,
-  Typography,
-  Paper,
-  Stack,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-} from "@mui/material";
+import { Box, Container, Typography, Paper } from "@mui/material";
 import Image from "next/image";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Footer from "./Footer";
 import { useRouter } from "next/navigation";
 import SignupModal from "./SignupModal";
@@ -46,30 +36,6 @@ const ClientHomePage = () => {
     },
     border: "#333333",
   };
-
-  // FAQ items
-  const faqItems = [
-    {
-      question: "What is a webinar funnel?",
-      answer:
-        "A webinar funnel is a marketing strategy that uses webinars to attract, engage, and convert prospects into customers. It typically includes registration pages, reminder emails, the webinar itself, and follow-up sequences.",
-    },
-    {
-      question: "How long does it take to set up a webinar?",
-      answer:
-        "Setting up a basic webinar can take as little as a day, but creating a high-converting webinar funnel typically takes 1-2 weeks, including preparation of content, slides, technical setup, and marketing materials.",
-    },
-    {
-      question: "Do I need technical experience to create a webinar?",
-      answer:
-        "No, our platform is designed to be user-friendly for beginners. We provide templates and step-by-step guidance that makes the process simple, even if you have no technical experience.",
-    },
-    {
-      question: "What equipment do I need to host a webinar?",
-      answer:
-        "At minimum, you need a computer with a reliable internet connection, a microphone, and our webinar software. For better quality, we recommend a good webcam, headset, and quiet environment.",
-    },
-  ];
 
   return (
     <Box
@@ -239,75 +205,6 @@ const ClientHomePage = () => {
           </Typography>
         </Box>
 
-        {/* FAQ Section */}
-        <Box sx={{ mb: 10, mx: { xs: 1, md: 4 } }}>
-          <Typography
-            variant="h3"
-            sx={{
-              fontWeight: 800,
-              color: colors.primary,
-              mb: 6,
-              textAlign: "center",
-              fontSize: { xs: "1.8rem", sm: "2.2rem", md: "2.5rem" },
-              letterSpacing: "-0.02em",
-            }}
-          >
-            Frequently Asked Questions
-          </Typography>
-
-          <Stack spacing={2} sx={{ maxWidth: "900px", mx: "auto" }}>
-            {faqItems.map((faq, index) => (
-              <Accordion
-                key={index}
-                sx={{
-                  border: `1px solid ${colors.border}`,
-                  borderRadius: "8px!important",
-                  overflow: "hidden",
-                  "&:before": {
-                    display: "none",
-                  },
-                  mb: 2,
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  sx={{
-                    backgroundColor: colors.bg.card,
-                    borderBottom: `1px solid ${colors.border}`,
-                    "& .MuiAccordionSummary-content": {
-                      margin: "12px 0",
-                    },
-                  }}
-                >
-                  <Typography
-                    variant="h6"
-                    sx={{
-                      fontSize: "1.1rem",
-                      fontWeight: 600,
-                      color: colors.text.dark,
-                    }}
-                  >
-                    {faq.question}
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails
-                  sx={{ backgroundColor: colors.bg.card, p: 3 }}
-                >
-                  <Typography
-                    sx={{
-                      color: colors.text.medium,
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {faq.answer}
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            ))}
-          </Stack>
-        </Box>
-
         {/* CTA Section */}
         <Box
           onClick={handleOpenModal}
@@ -337,7 +234,7 @@ const ClientHomePage = () => {
               fontSize: { xs: "1.3rem", sm: "1.6rem" },
             }}
           >
-            JOIN FOR FREE!
+            Download Free Resources!
           </Typography>
           <Typography
             variant="body1"

@@ -29,7 +29,7 @@ export default function Home() {
       sx={{
         position: "relative",
         minHeight: "100vh",
-        bgcolor: "#05070A",
+        bgcolor: "#0A1926",
         overflow: "hidden",
       }}
     >
